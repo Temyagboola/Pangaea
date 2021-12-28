@@ -1,21 +1,32 @@
-//@ TO-DO: Remove express
-const express = require('express');
-const redis = require('redis');
+/*
+ * Primary file for API
+ *
+ */
 
-const publisher = redis.createClient();
+// Dependencies
+var server = require('./lib/server');
+var workers = require('./lib/worker');
+var cli = require('./lib/cli');
 
-const app = express();
+// Declare the app
+var app = {};
 
-app.get('/',(req,res) => {
-    const user = {
-        id : "123456",
-        name : "Davis"
-    }
+// App init function
+app.init = function(){
+    // Start the server
+    server.init();
 
-    publisher.publish("user-notify",JSON.stringify(user))
-    res.send("Publishing an Event using Redis");
-})
+    // Start the workers
+    workers.init();
 
-app.listen(9000,() => {
-    console.log(`server is listening on PORT 3005`);
-})
+    // Start the CLi, but make sure it starts last
+    setTimeout(function(){
+        cli.init();
+    }, 50);
+};
+
+// Self-executing
+app.init();
+
+// Export the app
+module.exports = app;
