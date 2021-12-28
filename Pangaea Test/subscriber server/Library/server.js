@@ -10,7 +10,7 @@ const path = require('path');
 const util = require('util');
 const fs = require('fs');
 const debug = util.debuglog('workers');
-let config = require('../config');
+let config = require('../Config/config');
 let handlers = require('./handlers');
 let helpers = require('./helpers');
 
