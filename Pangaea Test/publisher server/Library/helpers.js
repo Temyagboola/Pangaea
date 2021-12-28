@@ -5,7 +5,7 @@
 
 // Dependencies
 const crypto = require('crypto');
-const config = require('../config');
+let config = require('../Config/config');
 
 // Container for all the helpers
 let helpers = {};
