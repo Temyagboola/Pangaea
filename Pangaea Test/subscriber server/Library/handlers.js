@@ -2,7 +2,7 @@
 let httpRequest = require('../httpRequest/http');
 let _data = require('./data');
 let helpers = require('./helpers');
-let config = require('../config');
+let config = require('../Config/config');
 
 
 // All our Request handlers
