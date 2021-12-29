@@ -14,7 +14,7 @@ environments.development = {
 
 // Production environment
 environments.production = {
-        'httpPort' : process.env.httpPortDev,
+    'httpPort' : process.env.httpPortDev,
     'httpsPort' : process.env.httpsPortDev,
     'envName' : 'production',
     'hashingSecret' : process.env.hash
