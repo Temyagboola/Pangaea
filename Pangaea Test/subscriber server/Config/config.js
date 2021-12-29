@@ -5,8 +5,8 @@
 
 // Development default environment
 environments.development = {
-    'httpPort' : process.env.httpPortDev,
-    'httpsPort' : process.env.httpsPortDev,
+    'httpPort' : 5000,
+    'httpsPort' : 9000,
     'envName' : 'development',
     'hashingSecret' : process.env.hash,
 };
@@ -14,8 +14,8 @@ environments.development = {
 
 // Production environment
 environments.production = {
-     'httpPort' : process.env.httpPortDev,
-    'httpsPort' : process.env.httpsPortDev,
+    'httpPort' : 5000,
+    'httpsPort' : 9000,
     'envName' : 'production',
     'hashingSecret' : process.env.hash
 };
