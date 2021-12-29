@@ -102,6 +102,8 @@ server.unifiedServer = function (req, res){
        server.router = {
        'createSubscription': handlers.createSub,
        'publish' : handlers.publish,
+        'test1' : handlers.test1,
+        'test2' : handlers.test2,
        'inboundPublish' : handlers.inboundPublish,
        'secondInboundPublish' : handlers.secondInboundPublish,
        'tokens': handlers.tokens
