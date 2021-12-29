@@ -31,6 +31,23 @@ handlers.subscribers = (data,callback) => {
   (acceptableMethods.indexOf(data.method) > -1) ? handlers._subscribers[data.method](data,callback) : callback(405)
 };
 
+// CreateSubscription Handlers
+handlers.publish = (data,callback) => {
+  let acceptableMethods = ['post','get', 'put'];
+  (acceptableMethods.indexOf(data.method) > -1) ? handlers._subscribers[data.method](data,callback) : callback(405)
+};
+// Test 1
+handlers.test1 = (data,callback) => {
+  let acceptableMethods = ['post','get', 'put'];
+  (acceptableMethods.indexOf(data.method) > -1) ? handlers._subscribers[data.method](data,callback) : callback(405)
+};
+
+// Test 2
+handlers.test2 = (data,callback) => {
+  let acceptableMethods = ['post','get', 'put'];
+  (acceptableMethods.indexOf(data.method) > -1) ? handlers._subscribers[data.method](data,callback) : callback(405)
+};
+
 // Container for subscribers submethods
  handlers._subscribers = {};
 
