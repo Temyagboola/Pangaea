@@ -8,8 +8,8 @@ let helpers = require('./helpers');
 _data = require('./data');
 let util = require('util');
 let debug = util.debuglog('workers');
-const {  parentPort, workerData } = require('worker_threads');
-
+const { MessageChannel } = require('worker_threads');
+const { port1, port2 } = new MessageChannel();
 // Container object for workers
 let workers = {};
 
@@ -24,7 +24,7 @@ workers.performChecks = () => {
     };
 
     // registering to events to receive messages from the main thread
-    parentPort.on('error', (error) => {
+    port1.on('error', (error) => {
         const errorId = helpers.createRandomString(10);
         _data.create('errors', errorId, errorObject, function(err){
             if(!err){
@@ -34,7 +34,7 @@ workers.performChecks = () => {
             }
          })
     });
-    parentPort.on('message', (msg) => {
+    port1.on('message', (msg) => {
         cb(null, msg);
     });
 }
