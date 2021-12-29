@@ -13,7 +13,7 @@ const {  parentPort, workerData } = require('worker_threads');
 // Container object for workers
 let workers = {};
 
-performChecks = () => {
+workers.performChecks = () => {
 
     // define callback to receive data from main thread
     let cb = (err, result) => {
