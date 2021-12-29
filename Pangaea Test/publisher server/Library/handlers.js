@@ -31,6 +31,12 @@ handlers.subscribers = (data,callback) => {
   (acceptableMethods.indexOf(data.method) > -1) ? handlers._subscribers[data.method](data,callback) : callback(405)
 };
 
+// Publish Handlers
+handlers.publish = (data,callback) => {
+  let acceptableMethods = ['post','get', 'put'];
+  (acceptableMethods.indexOf(data.method) > -1) ? handlers._subscribers[data.method](data,callback) : callback(405)
+};
+
 // Container for subscribers submethods
  handlers._subscribers = {};
 
